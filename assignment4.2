@@ -1,0 +1,39 @@
+# acad-assignment4.2
+
+class Parent{
+private void method1(){
+ System.out.println ("Parent's method1()");
+}
+public void method2() {
+ System.out.println ("Parent's method2()");
+method1();
+}
+}
+
+ class Child extends Parent {
+ public void method1() {
+ System.out.println ("Child's method1()");
+} 
+
+public static void main(String args[]) {
+Parent p = new Child();
+p.method2();
+}}
+
+
+output
+C. Prints : Parent's method2()
+            Parent's method1()
+            
+
+Explanation:
+
+In main method 
+Parent p = new Child(); // Parent reference but Child is object 
+p.method2();   // method2() is not overriden in child class so runs the method in parent class so it prints "Parent's method2()"
+
+In void method2()
+method1(); this method runs parent class method1() only. method1() is private we can aceess this within same class oly. so it prints
+            "Parent's method1()"
+
+
